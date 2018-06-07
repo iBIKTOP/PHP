@@ -23,7 +23,19 @@
 				$msg = "Не коректно введен номер телефона!";
 			}
 			else{			
-				file_put_contents("content.txt", "$dt-|-$name-|-$phone\r\n", FILE_APPEND);
+				//file_put_contents("content.txt", "$dt-|-$name-|-$phone\r\n", FILE_APPEND); //записываем в файл
+				//$mysqli = new mysqli("localhost","root","","db");
+    			//$mysqli->query("SET NAMES 'utf8'");
+    			// $success = $mysqli->query ("INSERT INTO `users`(`name`, `phone`,`date`) VALUES ('name','123456','12.05.2018')");
+
+				$mysqli = new PDO('mysql:host=localhost;dbname=db','root','');
+    			$mysqli->prepare("SET NAMES 'utf8'");
+    			$success = $mysqli->prepare("INSERT INTO users (name,phone,date) VALUES(:name,:phone,:date)");
+    			$arr = ['name'=>$name, 'phone'=>$phone, 'date'=>$dt];
+    			$success->execute($arr);
+    			//echo $success;//если добавилось то выведит 1
+
+
 				$msg = "Ваша заявка принята, спасибо, Вам перезвонят!";
 			}
 		}

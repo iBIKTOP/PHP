@@ -3,7 +3,6 @@
 	// echo "<pre>";
 	// 	var_dump($file);//ИЛИ МОЖНО ИСПОЛЬЗОВАТЬ print_r
 	// echo "</pre>";
-
 	echo "<table>";
 	foreach ($file as $value) {
 			$arr = explode("-|-", $value);//explode - разрезает нашу строку и создает массив
