@@ -88,7 +88,8 @@
 					</div>
 					
 					<div class="col-xs-2">
-						<a href="del.php?id=<?=$row['id']; ?>" class="btn btn-danger">Удалить</a>
+						<a href="edit.php?id=<?=$row['id']; ?>" class="btn btn-danger">Edit</a>
+						<a href="del.php?id=<?=$row['id']; ?>" class="btn btn-danger">Del</a>
 					</div>	
 					
 				</div>
